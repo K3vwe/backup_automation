@@ -10,11 +10,11 @@ shopt -s nullglob dotglob
 fileToCopy=/Users/victoronowho/logs
 destination=/Users/victoronowho/devops_learning
 timestamp=$(date "+%Y_%m_%d-%H_%M_%S")
-backupScript_log=/var/log/backup_script.log
+backupScript_log=/Users/victoronowho/logs/backup_script.log
 
 # Store the logt file from backup script
 exec >> "$backupScript_log" 2>&1
-echo "Backing up script started at $(timestamp)"
+echo "Backing up script started at $timestamp"
 
 mkdir -p "$destination"
 
@@ -31,4 +31,4 @@ mkdir -p "$BACKUP"
 cp -a "$fileToCopy"/. "$BACKUP"
 echo "File copied successfully"
 
-echo "Backup finished at $(timestamp)"
+echo "Backup finished at $timestamp"
